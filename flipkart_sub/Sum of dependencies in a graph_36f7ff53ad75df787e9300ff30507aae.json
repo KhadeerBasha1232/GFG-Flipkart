@@ -1,0 +1,6 @@
+{
+  "code": "// Initial Template for C++\r\n\r\n#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\n// } Driver Code Ends\r\n// User function Template for C++\r\n\r\nclass Solution {\r\n  public:\r\n    int sumOfDependencies(vector<int> adj[], int V) {\r\n\r\n        int sum=0;\r\n        for(int i=0; i<V; i++) {\r\n            int s=0;\r\n            for(auto it : adj[i]) {\r\n                s++;\r\n            }\r\n            sum += s;\r\n        }\r\n        return sum;\r\n    }\r\n};\r\n\r\n//{ Driver Code Starts.\r\n\r\nint main() {\r\n    int t;\r\n    cin >> t;\r\n    while (t--) {\r\n        int N, M, x, y;\r\n        cin >> N >> M;\r\n        vector<int> v[N];\r\n        for (int i = 0; i < M; i++) {\r\n            cin >> x >> y;\r\n            v[x].push_back(y);\r\n        }\r\n        Solution ob;\r\n        cout << ob.sumOfDependencies(v, N) << \"\\n\";\r\n    }\r\n}\r\n// } Driver Code Ends",
+  "status": "1",
+  "language": "cpp",
+  "user_code": "// User function Template for C++\r\n\r\nclass Solution {\r\n  public:\r\n    int sumOfDependencies(vector<int> adj[], int V) {\r\n\r\n        int sum=0;\r\n        for(int i=0; i<V; i++) {\r\n            int s=0;\r\n            for(auto it : adj[i]) {\r\n                s++;\r\n            }\r\n            sum += s;\r\n        }\r\n        return sum;\r\n    }\r\n};\r\n"
+}

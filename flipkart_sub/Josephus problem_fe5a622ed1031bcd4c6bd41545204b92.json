@@ -1,0 +1,6 @@
+{
+  "code": "/*package whatever //do not write package name here */\r\n\r\nimport java.io.*;\r\nimport java.util.*;\r\nclass Recursion {\r\n\tpublic static void main (String[] args) {\r\n\t\tScanner sc=new Scanner(System.in);\r\n\t\t\r\n\t\tint T=sc.nextInt();//testcases\r\n\t\twhile(T-->0)\r\n\t\t{\r\n\t\t    Solution obj=new Solution();\r\n\t\t    \r\n\t\t    int n,k;\r\n\t\t    //taking input n and k\r\n\t\t    n=sc.nextInt();\r\n\t\t    k=sc.nextInt();\r\n\t\t    \r\n\t\t    //calling josephus() function\r\n\t\t    System.out.println(obj.josephus(n,k));\r\n\t\t    \r\n\t\t    \r\n\t\t}\r\n\t\t\r\n\t}\r\n}\r\n\r\n\r\n// } Driver Code Ends\r\n\r\n\r\nclass Solution\r\n{\r\n   public int josephus(int n, int k)\r\n    {\r\n        //Your code here\r\n        int c=0,j;\r\n        for(j=2;j<=n;j++)\r\n        {\r\n            c=(c+k)%j;\r\n        }\r\n        return c+1;\r\n    }\r\n\r\n}\r\n\r\n",
+  "status": "1",
+  "language": "java",
+  "user_code": "\r\n\r\nclass Solution\r\n{\r\n   public int josephus(int n, int k)\r\n    {\r\n        //Your code here\r\n        int c=0,j;\r\n        for(j=2;j<=n;j++)\r\n        {\r\n            c=(c+k)%j;\r\n        }\r\n        return c+1;\r\n    }\r\n\r\n}\r\n\r\n"
+}

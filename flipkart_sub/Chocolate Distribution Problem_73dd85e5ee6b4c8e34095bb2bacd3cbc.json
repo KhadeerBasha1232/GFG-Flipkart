@@ -1,0 +1,6 @@
+{
+  "code": "//Initial Template for C++\r\n\r\n#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\n\r\n// } Driver Code Ends\r\n//User function Template for C++\r\n\r\nint minDiff(int arr[], int n, int m){\r\n    \r\n    //code here\r\n    if(m>n) return -1;\r\n    sort(arr, arr+n);\r\n    int res=arr[m-1]-arr[0];\r\n    for(int i=1; (i+m-1)<n; i++)\r\n        res = min(res, arr[i+m-1]-arr[i]);\r\n    return res;\r\n}\r\n\r\n//{ Driver Code Starts.\r\n\r\nint main() {\r\n\t\r\n\tint t;\r\n\tcin>>t;\r\n\twhile(t--)\r\n\t{\r\n\t\tint n;\r\n\t\tcin>>n;\r\n\t\tint arr[n];\r\n\t\t\r\n\t\tfor(int i = 0; i < n;i++)\r\n\t\t{\r\n\t\t\tcin>>arr[i];\r\n\t\t}\r\n\t\t\r\n\t\tint m;\r\n\t\tcin>>m;\r\n\t\t\r\n\t\tcout<<minDiff(arr, n , m)<<endl;\r\n\t}\r\n\treturn 0;\r\n}\r\n// } Driver Code Ends",
+  "status": "1",
+  "language": "cpp",
+  "user_code": "//User function Template for C++\r\n\r\nint minDiff(int arr[], int n, int m){\r\n    \r\n    //code here\r\n    if(m>n) return -1;\r\n    sort(arr, arr+n);\r\n    int res=arr[m-1]-arr[0];\r\n    for(int i=1; (i+m-1)<n; i++)\r\n        res = min(res, arr[i+m-1]-arr[i]);\r\n    return res;\r\n}\r\n"
+}

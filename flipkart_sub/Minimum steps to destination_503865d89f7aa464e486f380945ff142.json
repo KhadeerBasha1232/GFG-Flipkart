@@ -1,0 +1,6 @@
+{
+  "code": "// Initial Template for C++\r\n\r\n#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\n// } Driver Code Ends\r\n// User function Template for C++\r\n\r\nclass Solution{\r\npublic:\r\n    int minSteps(int D){\r\n        int sum=0;\r\n        int steps=0;\r\n        for(steps=1;sum<D;steps++)sum+=steps;\r\n        if(sum==D)return steps-1;\r\n        else if(!((sum-D)&1))return steps-1;\r\n        else if(!((sum-D+steps)&1))return steps;\r\n        else if(!((sum-D+steps+steps+1)&1))return steps+1;\r\n        return -1;\r\n    }\r\n};\r\n\r\n//{ Driver Code Starts.\r\n\r\nint main(){\r\n    int t;\r\n    cin>>t;\r\n    while(t--){\r\n        int D;\r\n        cin>>D;\r\n        \r\n        Solution ob;\r\n        cout<<ob.minSteps(D)<<\"\\n\";\r\n    }\r\n    return 0;\r\n}\r\n// } Driver Code Ends",
+  "status": "1",
+  "language": "cpp",
+  "user_code": "// User function Template for C++\r\n\r\nclass Solution{\r\npublic:\r\n    int minSteps(int D){\r\n        int sum=0;\r\n        int steps=0;\r\n        for(steps=1;sum<D;steps++)sum+=steps;\r\n        if(sum==D)return steps-1;\r\n        else if(!((sum-D)&1))return steps-1;\r\n        else if(!((sum-D+steps)&1))return steps;\r\n        else if(!((sum-D+steps+steps+1)&1))return steps+1;\r\n        return -1;\r\n    }\r\n};\r\n"
+}

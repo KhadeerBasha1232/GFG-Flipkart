@@ -1,0 +1,6 @@
+{
+  "code": "/* Driver program to test above function */\r\n\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\n\r\n// } Driver Code Ends\r\n//User function Template for C++\r\n\r\n#define ll long long int\r\nclass Solution\r\n{\r\n   public:\r\n    long long int countNonDecreasing(int n) {\r\n        int N = 10;\r\n        long long count = 1;\r\n        for (int i=1; i<=n; i++){\r\n            count *= (N+i-1);\r\n            count /= i;\r\n        }\r\n        return count;\r\n    }\r\n};\r\n\r\n//{ Driver Code Starts.\r\nint main()\r\n{\r\n\tint t;\r\n\tcin>>t;\r\n\twhile(t--)\r\n\t{\r\n\t    int n;\r\n\t    cin >> n;\r\n\t    Solution ob;\r\n\t    long long int ans = ob.countNonDecreasing(n);\r\n\t    cout << ans<<endl;\r\n\t}\r\n\treturn 0;\r\n}\r\n\r\n// } Driver Code Ends",
+  "status": "1",
+  "language": "cpp",
+  "user_code": "//User function Template for C++\r\n\r\n#define ll long long int\r\nclass Solution\r\n{\r\n   public:\r\n    long long int countNonDecreasing(int n) {\r\n        int N = 10;\r\n        long long count = 1;\r\n        for (int i=1; i<=n; i++){\r\n            count *= (N+i-1);\r\n            count /= i;\r\n        }\r\n        return count;\r\n    }\r\n};\r\n"
+}

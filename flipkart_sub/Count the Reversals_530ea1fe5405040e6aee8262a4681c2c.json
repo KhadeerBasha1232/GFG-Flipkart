@@ -1,0 +1,6 @@
+{
+  "code": "#include<bits/stdc++.h>\r\nusing namespace std;\r\n\r\nint countRev (string s);\r\nint main()\r\n{\r\n    int t; cin >> t;\r\n    while (t--)\r\n    {\r\n        string s; cin >> s;\r\n        cout << countRev (s) << '\\n';\r\n    }\r\n}\r\n\r\n// Contributed By: Pranay Bansal\r\n// } Driver Code Ends\r\n\r\n\r\nint countRev (string s)\r\n{\r\n    int len = s.length();\r\n    if(len%2) return -1;\r\n    int c = 0;\r\n    stack<char> st;\r\n    for(int i = 0;i < len;i++)\r\n    {\r\n        if(s[i] == '{'){\r\n            st.push('{');\r\n        }\r\n        else{\r\n            if(st.empty()){\r\n                st.push('{');\r\n                c++;\r\n            }\r\n            else st.pop();\r\n        }\r\n    }\r\n    return c+st.size()/2;\r\n}",
+  "status": "1",
+  "language": "cpp",
+  "user_code": "\r\n\r\nint countRev (string s)\r\n{\r\n    int len = s.length();\r\n    if(len%2) return -1;\r\n    int c = 0;\r\n    stack<char> st;\r\n    for(int i = 0;i < len;i++)\r\n    {\r\n        if(s[i] == '{'){\r\n            st.push('{');\r\n        }\r\n        else{\r\n            if(st.empty()){\r\n                st.push('{');\r\n                c++;\r\n            }\r\n            else st.pop();\r\n        }\r\n    }\r\n    return c+st.size()/2;\r\n}"
+}

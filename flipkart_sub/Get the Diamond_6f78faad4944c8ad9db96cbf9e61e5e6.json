@@ -1,0 +1,6 @@
+{
+  "code": "//Initial Template for Java\r\n\r\nimport java.util.*;\r\nimport java.io.*;\r\nimport java.lang.*;\r\n\r\nclass GFG{\r\n\tpublic static void main(String [] args) throws IOException {\r\n\t\tBufferedReader br = new BufferedReader(new InputStreamReader(System.in));\r\n\t\tint test = Integer.parseInt(br.readLine());\r\n\t\twhile(test-->0) {\r\n\t\t\tlong N = Long.parseLong(br.readLine());\r\n\t\t    long K = Long.parseLong(br.readLine());\r\n\t\t    \r\n\t\t\tSolution ob = new Solution();\r\n\t\t\tSystem.out.println(ob.findJumps(N, K));\r\n\t\t}\r\n\t}\r\n}\r\n\r\n// } Driver Code Ends\r\n//User function Template for Java\r\n\r\nclass Solution{\r\n    long findJumps(long N, long K){\r\n        //Write your code here\r\n        long count=0;\r\n       if(N<K){\r\n           return N;\r\n       }\r\n       long t=N/K;\r\n       N=N%K;\r\n      count=t+N;\r\n      return count;\r\n    }\r\n}\r\n\r\n//{ Driver Code Starts.\r\n\r\n// } Driver Code Ends",
+  "status": "1",
+  "language": "java",
+  "user_code": "//User function Template for Java\r\n\r\nclass Solution{\r\n    long findJumps(long N, long K){\r\n        //Write your code here\r\n        long count=0;\r\n       if(N<K){\r\n           return N;\r\n       }\r\n       long t=N/K;\r\n       N=N%K;\r\n      count=t+N;\r\n      return count;\r\n    }\r\n}\r\n"
+}

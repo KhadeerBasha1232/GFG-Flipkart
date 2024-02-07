@@ -1,0 +1,6 @@
+{
+  "code": "#include<bits/stdc++.h>\r\nusing namespace std;\r\n\r\n// } Driver Code Ends\r\nclass Solution{\r\n\tpublic:\r\n\tint countTriplets(vector<int>arr){\r\n    // Code here.\r\n    int n = arr.size(), ans = 0;\r\n    for(int i = 1;i<n-1;i++){\r\n        int l = 0, r = 0;\r\n        for(int j = 0;j<i;j++)\r\n            if(arr[j]<arr[i]) l++;\r\n        for(int j = i+1;j<n;j++)\r\n            if(arr[i]<arr[j]) r++;\r\n        ans+=l*r;\r\n    }return ans;\r\n}\r\n};\r\n\r\n\r\n//{ Driver Code Starts.\r\nint main(){\r\n\tint tc;\r\n\tcin >> tc;\r\n\twhile(tc--){\r\n\t\tint n;\r\n\t\tcin >> n;\r\n\t\tvector<int>nums(n);\r\n\t\tfor(int i = 0; i < n; i++)cin >> nums[i];\r\n\t\tSolution ob;\r\n\t\tint ans = ob.countTriplets(nums);\r\n\t\tcout << ans << \"\\n\";\r\n\t}  \r\n\treturn 0;\r\n}\r\n// } Driver Code Ends",
+  "status": "1",
+  "language": "cpp",
+  "user_code": "class Solution{\r\n\tpublic:\r\n\tint countTriplets(vector<int>arr){\r\n    // Code here.\r\n    int n = arr.size(), ans = 0;\r\n    for(int i = 1;i<n-1;i++){\r\n        int l = 0, r = 0;\r\n        for(int j = 0;j<i;j++)\r\n            if(arr[j]<arr[i]) l++;\r\n        for(int j = i+1;j<n;j++)\r\n            if(arr[i]<arr[j]) r++;\r\n        ans+=l*r;\r\n    }return ans;\r\n}\r\n};\r\n\r\n"
+}

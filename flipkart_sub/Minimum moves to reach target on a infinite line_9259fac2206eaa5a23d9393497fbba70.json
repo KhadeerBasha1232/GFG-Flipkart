@@ -1,0 +1,6 @@
+{
+  "code": "/* Driver program to test above function */\r\n\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\n\r\n// } Driver Code Ends\r\n//User function Template for C++\r\n\r\n\r\n\r\nclass Solution\r\n{\r\n   public:\r\n    int minMoves(int target)\r\n   {\r\n      //Write your code here\r\n      int sum=0;\r\n      int step=0;\r\n      target=abs(target);\r\n      while(sum<target){\r\n          sum+=step;\r\n          step++;\r\n      }\r\n      while((sum-target)%2==1){\r\n          sum+=step;\r\n          step++;\r\n      }\r\n      return step-1;\r\n   }\r\n};\r\n\r\n\r\n//{ Driver Code Starts.\r\nint main()\r\n{\r\n\tint t;\r\n\tcin>>t;\r\n\twhile(t--)\r\n\t{\r\n\t    int n;\r\n\t    cin >> n;\r\n\t    Solution ob;  \r\n\t    int ans=ob.minMoves(n);\r\n\t    cout << ans << endl;\r\n\t}\r\n\treturn 0;\r\n}\r\n// } Driver Code Ends",
+  "status": "1",
+  "language": "cpp",
+  "user_code": "//User function Template for C++\r\n\r\n\r\n\r\nclass Solution\r\n{\r\n   public:\r\n    int minMoves(int target)\r\n   {\r\n      //Write your code here\r\n      int sum=0;\r\n      int step=0;\r\n      target=abs(target);\r\n      while(sum<target){\r\n          sum+=step;\r\n          step++;\r\n      }\r\n      while((sum-target)%2==1){\r\n          sum+=step;\r\n          step++;\r\n      }\r\n      return step-1;\r\n   }\r\n};\r\n\r\n"
+}

@@ -1,0 +1,6 @@
+{
+  "code": "\r\n\r\nclass Solution:\r\n    \r\n    #Function is to check whether two strings are anagram of each other or not.\r\n    def isAnagram(self,a,b):\r\n        a = sorted(a)\r\n        b = sorted(b)\r\n        if a==b:\r\n            return True\r\n        else:\r\n            return False\r\n        #code here\r\n\r\n\r\n#{ \r\n # Driver Code Starts\r\n#Initial Template for Python 3\r\n\r\nif __name__=='__main__':\r\n    t = int(input())\r\n    for i in range(t):\r\n        a,b=map(str,input().strip().split())\r\n        if(Solution().isAnagram(a,b)):\r\n            print(\"YES\")\r\n        else:\r\n            print(\"NO\") \r\n# } Driver Code Ends",
+  "status": "1",
+  "language": "python3",
+  "user_code": "#User function Template for python3\r\n\r\n\r\nclass Solution:\r\n    \r\n    #Function is to check whether two strings are anagram of each other or not.\r\n    def isAnagram(self,a,b):\r\n        a = sorted(a)\r\n        b = sorted(b)\r\n        if a==b:\r\n            return True\r\n        else:\r\n            return False\r\n        #code here\r\n\r\n\r\n"
+}

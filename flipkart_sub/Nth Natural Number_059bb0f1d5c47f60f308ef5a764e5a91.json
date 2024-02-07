@@ -1,0 +1,6 @@
+{
+  "code": "//Initial Template for C++\r\n\r\n#include<bits/stdc++.h>\r\nusing namespace std;\r\n\r\n// } Driver Code Ends\r\n//User function Template for C++\r\n\r\n\r\nclass Solution{\r\n\tpublic:\r\n    \tlong long findNth(long long N){\r\n        \r\n           long long ans=0;\r\n           long long temp=1;\r\n           while(N){\r\n               ans+=temp*(N%9);\r\n               temp=temp*10;\r\n               N/=9;\r\n           }\r\n           return ans;\r\n   }\r\n\r\n};\r\n\r\n//{ Driver Code Starts.\r\nint main()\r\n{\r\n\tint t;\r\n\tcin>>t;\r\n\twhile(t--)\r\n\t{\r\n\t\tlong long n , ans;\r\n\t\tcin>>n;\r\n\t\tSolution obj;\r\n\t\tans = obj.findNth(n);\r\n\t\tcout<<ans<<endl;\r\n\t}\r\n}\r\n\r\n\r\n// } Driver Code Ends",
+  "status": "1",
+  "language": "cpp",
+  "user_code": "//User function Template for C++\r\n\r\n\r\nclass Solution{\r\n\tpublic:\r\n    \tlong long findNth(long long N){\r\n        \r\n           long long ans=0;\r\n           long long temp=1;\r\n           while(N){\r\n               ans+=temp*(N%9);\r\n               temp=temp*10;\r\n               N/=9;\r\n           }\r\n           return ans;\r\n   }\r\n\r\n};\r\n"
+}

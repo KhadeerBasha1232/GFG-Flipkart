@@ -1,0 +1,6 @@
+{
+  "code": "class Solution:\r\n    def numberOfPaths(self, m, n):\r\n        # code here\r\n        paths = [[0]*n for _ in range(m)]\r\n        for i in range(m):\r\n            paths[i][0]=1\r\n        for b in range(n):\r\n            paths[0][b]=1\r\n        for i in range(1,m):\r\n            for b in range(1,n):\r\n                paths[i][b] = paths[i-1][b] + paths[i][b-1]\r\n        return paths[m-1][n-1]\r\n\r\n\r\n\r\n#{ \r\n # Driver Code Starts\r\n#Initial Template for Python 3\r\nif __name__ == '__main__':\r\n    T=int(input())\r\n    for i in range(T):\r\n        m,n = input().split()\r\n        m=int(m)\r\n        n=int(n)\r\n        ob = Solution();\r\n        print(ob.numberOfPaths(m,n))\r\n\r\n# } Driver Code Ends",
+  "status": "0",
+  "language": "python3",
+  "user_code": "#User function Template for python3\r\nclass Solution:\r\n    def numberOfPaths(self, m, n):\r\n        # code here\r\n        paths = [[0]*n for _ in range(m)]\r\n        for i in range(m):\r\n            paths[i][0]=1\r\n        for b in range(n):\r\n            paths[0][b]=1\r\n        for i in range(1,m):\r\n            for b in range(1,n):\r\n                paths[i][b] = paths[i-1][b] + paths[i][b-1]\r\n        return paths[m-1][n-1]\r\n\r\n\r\n\r\n"
+}

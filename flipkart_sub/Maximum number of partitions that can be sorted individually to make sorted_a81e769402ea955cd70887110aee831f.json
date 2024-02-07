@@ -1,0 +1,6 @@
+{
+  "code": "\r\n// CPP program to find Maximum number of partitions\r\n// such that we can get a sorted array.\r\n#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\n// Function to find maximum partitions.\r\nint maxPartitions(int arr[], int n);\r\n\r\n\r\n// Driver code\r\nint main()\r\n{\r\n\tint t,n;\r\n\tcin>>t;\r\n\twhile(t--)\r\n    {\r\n        cin>>n;\r\n        int arr[n];\r\n        for(int i=0;i<n;i++)\r\n            cin>>arr[i];\r\n        cout << maxPartitions(arr, n)<<endl;\r\n    }\r\n\r\n\treturn 0;\r\n}\r\n\r\n// } Driver Code Ends\r\n\r\n\r\nint maxPartitions(int arr[], int n)\r\n{\r\n    stack<int>st;\r\n    for(int i=0;i<n;i++) {\r\n        int temp = arr[i];\r\n        while(!st.empty() && st.top()>arr[i]) {\r\n            temp = max(temp,st.top());\r\n            st.pop();\r\n        }\r\n        st.push(temp);\r\n    }\r\n    return st.size();\r\n    \r\n}",
+  "status": "1",
+  "language": "cpp",
+  "user_code": "\r\n\r\nint maxPartitions(int arr[], int n)\r\n{\r\n    stack<int>st;\r\n    for(int i=0;i<n;i++) {\r\n        int temp = arr[i];\r\n        while(!st.empty() && st.top()>arr[i]) {\r\n            temp = max(temp,st.top());\r\n            st.pop();\r\n        }\r\n        st.push(temp);\r\n    }\r\n    return st.size();\r\n    \r\n}"
+}
