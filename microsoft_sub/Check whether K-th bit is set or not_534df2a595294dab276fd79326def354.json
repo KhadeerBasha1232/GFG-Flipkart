@@ -1,0 +1,6 @@
+{
+  "code": "//Initial Template for C++\r\n\r\n#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\n\r\n// } Driver Code Ends\r\n//User function Template for C++\r\n\r\n\r\nclass Solution\r\n{\r\n    public:\r\n    // Function to check if Kth bit is set or not.\r\n    bool checkKthBit(int n, int k)\r\n    {\r\n        // Your code here\r\n        // It can be a one liner logic!! Think of it!!\r\n        return (n& 0x01<<k);\r\n    }\r\n};\r\n\r\n//{ Driver Code Starts.\r\n\r\n// Driver Code\r\nint main()\r\n{\r\n\tint t;\r\n\tcin>>t;//taking testcases\r\n\twhile(t--)\r\n\t{\r\n\t    long long n;\r\n\t    cin>>n;//input n\r\n\t    int k;\r\n\t    cin>>k;//bit number k\r\n\t    Solution obj;\r\n\t    if(obj.checkKthBit(n, k))\r\n\t        cout << \"Yes\" << endl;\r\n\t    else\r\n\t        cout << \"No\" << endl;\r\n\t}\r\n\treturn 0;\r\n}\r\n// } Driver Code Ends",
+  "status": "1",
+  "language": "cpp",
+  "user_code": "//User function Template for C++\r\n\r\n\r\nclass Solution\r\n{\r\n    public:\r\n    // Function to check if Kth bit is set or not.\r\n    bool checkKthBit(int n, int k)\r\n    {\r\n        // Your code here\r\n        // It can be a one liner logic!! Think of it!!\r\n        return (n& 0x01<<k);\r\n    }\r\n};\r\n"
+}

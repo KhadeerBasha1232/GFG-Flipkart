@@ -1,0 +1,6 @@
+{
+  "code": "//Initial Template for C\r\n\r\n#include<stdio.h>\r\n  \r\n\r\n// } Driver Code Ends\r\n//User function Template for C\r\n\r\nlong long int floorSqrt(long long int x) \r\n{\r\n    // Your code goes here \r\n     if (x == 0 || x == 1)\r\n        return x;\r\n \r\n    // Starting from 1, try all numbers until\r\n    // i*i is greater than or equal to x.\r\n    int i = 1, result = 1;\r\n    while (result <= x) {\r\n        i++;\r\n        result = i * i;\r\n    }\r\n    return i - 1;\r\n}\r\n    \r\n\r\n\r\n\r\n//{ Driver Code Starts.\r\n\r\nint main()\r\n{\r\n\tint t;\r\n\tscanf(\"%d\", &t);\r\n\twhile(t--)\r\n\t{\r\n\t\tlong long n;\r\n\t\tscanf(\"%ld\", &n);\r\n\t\r\n\t\tprintf(\"%ld\\n\", floorSqrt(n));\r\n\t}\r\n    return 0;   \r\n}\r\n\r\n// } Driver Code Ends",
+  "status": "1",
+  "language": "c",
+  "user_code": "//User function Template for C\r\n\r\nlong long int floorSqrt(long long int x) \r\n{\r\n    // Your code goes here \r\n     if (x == 0 || x == 1)\r\n        return x;\r\n \r\n    // Starting from 1, try all numbers until\r\n    // i*i is greater than or equal to x.\r\n    int i = 1, result = 1;\r\n    while (result <= x) {\r\n        i++;\r\n        result = i * i;\r\n    }\r\n    return i - 1;\r\n}\r\n    \r\n\r\n\r\n"
+}

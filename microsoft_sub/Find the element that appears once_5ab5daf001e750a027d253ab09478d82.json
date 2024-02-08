@@ -1,0 +1,6 @@
+{
+  "code": "from collections import Counter \r\nclass Solution:\r\n    def search(self, A, N):\r\n        # your code here\r\n      c=Counter(A)\r\n      for k,v in c.items():\r\n        if v==1:\r\n            return k\r\n      \r\n\r\n\r\n#{ \r\n # Driver Code Starts\r\n#Initial Template for Python 3\r\n\r\nif __name__ == \"__main__\":\r\n    t = int (input ())\r\n    for tc in range (t):\r\n        n = int (input ())\r\n        arr = list(map(int, input().split()))\r\n        ob = Solution()\r\n        print(ob.search(arr, n)) \r\n# } Driver Code Ends",
+  "status": "1",
+  "language": "python3",
+  "user_code": "#User function Template for python3\r\nfrom collections import Counter \r\nclass Solution:\r\n    def search(self, A, N):\r\n        # your code here\r\n      c=Counter(A)\r\n      for k,v in c.items():\r\n        if v==1:\r\n            return k\r\n      \r\n\r\n\r\n"
+}

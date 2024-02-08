@@ -1,0 +1,6 @@
+{
+  "code": "\r\nclass Solution:\r\n    def graycode(self,m):\r\n        if m == 1:\r\n            return ['0', '1']\r\n        ans1 = self.graycode(m-1)\r\n        ans = []\r\n        for sa in ans1:\r\n            ans.append('0'+sa)\r\n        for sa in ans1[::-1]:\r\n            ans.append('1'+sa)\r\n        return ans\r\n        #code here\r\n\r\n\r\n#{ \r\n # Driver Code Starts\r\n#Initial Template for Python 3\r\nimport math\r\ndef main():\r\n    \r\n    T=int(input())\r\n    \r\n    while(T>0):\r\n        \r\n        \r\n        n=int(input())\r\n        ob=Solution()\r\n        l=ob.graycode(n)\r\n        \r\n        for x in l:\r\n            print(x, end=\" \")\r\n            \r\n        print()\r\n     \r\n        T-=1\r\n\r\nif __name__==\"__main__\":\r\n    main()\r\n# } Driver Code Ends",
+  "status": "1",
+  "language": "python3",
+  "user_code": "#User function Template for python3\r\n\r\nclass Solution:\r\n    def graycode(self,m):\r\n        if m == 1:\r\n            return ['0', '1']\r\n        ans1 = self.graycode(m-1)\r\n        ans = []\r\n        for sa in ans1:\r\n            ans.append('0'+sa)\r\n        for sa in ans1[::-1]:\r\n            ans.append('1'+sa)\r\n        return ans\r\n        #code here\r\n\r\n\r\n"
+}

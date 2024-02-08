@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<html>
+    <head>
+        <style>
+            body {
+                margin: 0;
+                font-family: 'Arial', sans-serif;
+                background-color: #f8f9fa;
+            }
+
+            .center-content {
+                text-align: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            h1 {
+                color: #007bff;
+            }
+
+            p {
+                font-size: 18px;
+                color: #333;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="center-content">
+            <h1>GFG Solutions</h1>
+            <p>
+                <strong>Get Started:</strong>
+                <br>
+                <strong>Search by Problem Name:</strong> Use our intuitive search feature to find solutions quickly.
+                <br>
+                <strong>Browse by Language:</strong> Explore solutions in your preferred programming language.
+                <br>
+                <strong>Discover Correct Solutions:</strong> Solutions are marked with a green background if the status is "Correct" and red if it's not.
+            </p>
+            <p>Made with love by KB ❤️</p>
+        </div>
+    </body>
+</html>
+{% endblock %}

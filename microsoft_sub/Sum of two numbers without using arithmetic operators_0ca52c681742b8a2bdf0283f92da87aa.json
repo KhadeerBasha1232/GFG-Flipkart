@@ -1,0 +1,6 @@
+{
+  "code": "//Initial Template for Java\r\n\r\nimport java.io.*;\r\nimport java.util.*; \r\nimport java.math.BigInteger;\r\n\r\nclass GFG\r\n{\r\n\tpublic static void main(String[] args) throws NumberFormatException, IOException \r\n\t{\r\n\t\tBufferedReader br = new BufferedReader(new InputStreamReader(System.in));\r\n\t\tint t = Integer.parseInt(br.readLine());\r\n\t\twhile(t>0)\r\n\t\t{\r\n\t\t    String S[] = br.readLine().split(\" \");\r\n            \r\n            int a = Integer.parseInt(S[0]);\r\n            int b = Integer.parseInt(S[1]);\r\n\t\t\tSolution obj = new Solution();\r\n\t\t\tSystem.out.println(obj.sum(a,b));\r\n            t--;\r\n\t\t}\r\n\t}\r\n}\r\n// } Driver Code Ends\r\n\r\n\r\n//User function Template for Java\r\n\r\nclass Solution\r\n{\r\n    int sum(int a , int b)\r\n    {\r\n         while(b!=0){\r\n\r\n            a++;\r\n\r\n            b--;\r\n\r\n        }\r\n\r\n        return a;\r\n    }\r\n}",
+  "status": "1",
+  "language": "java",
+  "user_code": "\r\n\r\n//User function Template for Java\r\n\r\nclass Solution\r\n{\r\n    int sum(int a , int b)\r\n    {\r\n         while(b!=0){\r\n\r\n            a++;\r\n\r\n            b--;\r\n\r\n        }\r\n\r\n        return a;\r\n    }\r\n}"
+}
