@@ -1,0 +1,6 @@
+{
+  "code": "class Solution:\r\n   def maxLen(self,arr, N):\r\n        dic = {0:-1}\r\n    \r\n        ans= 0 \r\n        cumulative_sum = 0 \r\n        for i in range(N):\r\n            cumulative_sum += 1 if arr[i]==1 else -1 \r\n            \r\n            if cumulative_sum in dic :\r\n                length = i - dic[cumulative_sum]\r\n                ans = max(ans , length)\r\n            else :\r\n                dic[cumulative_sum]= i \r\n                \r\n        return ans \r\n\r\n\r\n\r\n#{ \r\n # Driver Code Starts\r\n#Initial Template for Python 3\r\n\r\n\r\nt=int(input())\r\nfor _ in range(0,t):\r\n    n=int(input())\r\n    a=list(map(int,input().split()))\r\n    s=Solution().maxLen(a, len(a))\r\n    print(s)\r\n# } Driver Code Ends",
+  "status": "1",
+  "language": "python3",
+  "user_code": "\r\nclass Solution:\r\n   def maxLen(self,arr, N):\r\n        dic = {0:-1}\r\n    \r\n        ans= 0 \r\n        cumulative_sum = 0 \r\n        for i in range(N):\r\n            cumulative_sum += 1 if arr[i]==1 else -1 \r\n            \r\n            if cumulative_sum in dic :\r\n                length = i - dic[cumulative_sum]\r\n                ans = max(ans , length)\r\n            else :\r\n                dic[cumulative_sum]= i \r\n                \r\n        return ans \r\n\r\n\r\n\r\n"
+}

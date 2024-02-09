@@ -1,0 +1,6 @@
+{
+  "code": "# to be removed to make two strings anagram\r\ndef remAnagram(str1,str2):\r\n    \r\n    #add code here\r\n    \r\n    c1=getCounter(str1)\r\n    c2=getCounter(str2)\r\n    \r\n    ans=0\r\n    \r\n    for i in range(26):\r\n        ans=ans+abs(c1[i]-c2[i])\r\n    \r\n    return ans\r\n    \r\n    \r\ndef getCounter(S):\r\n    counter=[0]*26\r\n    n=len(S)\r\n    \r\n    for i in range(n):\r\n        counter[ord(S[i])-ord('a')]+=1\r\n    \r\n    return counter    \r\n\r\n\r\n#{ \r\n # Driver Code Starts\r\n\r\nif __name__=='__main__':\r\n    t=int(input())\r\n    for i in range(t):\r\n        str1=input()\r\n        str2=input()\r\n        print(remAnagram(str1,str2))\r\n# } Driver Code Ends",
+  "status": "1",
+  "language": "python3",
+  "user_code": "# function to calculate minimum numbers of characters\r\n# to be removed to make two strings anagram\r\ndef remAnagram(str1,str2):\r\n    \r\n    #add code here\r\n    \r\n    c1=getCounter(str1)\r\n    c2=getCounter(str2)\r\n    \r\n    ans=0\r\n    \r\n    for i in range(26):\r\n        ans=ans+abs(c1[i]-c2[i])\r\n    \r\n    return ans\r\n    \r\n    \r\ndef getCounter(S):\r\n    counter=[0]*26\r\n    n=len(S)\r\n    \r\n    for i in range(n):\r\n        counter[ord(S[i])-ord('a')]+=1\r\n    \r\n    return counter    \r\n\r\n\r\n"
+}

@@ -1,0 +1,6 @@
+{
+  "code": "#include<bits/stdc++.h>\r\nusing namespace std;\r\n\r\n// } Driver Code Ends\r\nclass Solution{\r\n  public:\r\n    int thirdLargest(int a[], int n)\r\n    {\r\n         //Your code here\r\n         sort(a,a+n);\r\n         \r\n         for(int i = 0 ; i < n ; i++){\r\n             return (a[n-3]);\r\n         }\r\n         return -1;\r\n    }\r\n\r\n};\r\n\r\n//{ Driver Code Starts.\r\n \r\nint main()\r\n{\r\n    int t;\r\n    cin>>t;\r\n    while(t--)\r\n    {\r\n\t    int n;\r\n\t    cin>>n;\r\n\t    int a[n];\r\n\t    for(int i=0;i<n;i++)\r\n\t        cin>>a[i];\r\n\t   Solution obj;\r\n\t    cout<<obj.thirdLargest(a,n)<<endl;\r\n    }\r\n}   \r\n// } Driver Code Ends",
+  "status": "1",
+  "language": "cpp",
+  "user_code": "class Solution{\r\n  public:\r\n    int thirdLargest(int a[], int n)\r\n    {\r\n         //Your code here\r\n         sort(a,a+n);\r\n         \r\n         for(int i = 0 ; i < n ; i++){\r\n             return (a[n-3]);\r\n         }\r\n         return -1;\r\n    }\r\n\r\n};\r\n"
+}

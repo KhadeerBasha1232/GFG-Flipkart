@@ -1,0 +1,6 @@
+{
+  "code": "\r\n\r\n\r\ndef generate(N):\r\n    res = []\r\n    for i in range(1,N+1):\r\n        res.append(bin(i)[2:])\r\n    return res\r\n\r\n\r\n\r\n\r\n#{ \r\n # Driver Code Starts\r\n#Initial Template for Python 3\r\nimport atexit\r\nimport io\r\nimport sys\r\n\r\n#Contributed by :  Nikhil Kumar Singh(nickzuck_007)\r\n\r\n_INPUT_LINES = sys.stdin.read().splitlines()\r\ninput = iter(_INPUT_LINES).__next__\r\n_OUTPUT_BUFFER = io.StringIO()\r\nsys.stdout = _OUTPUT_BUFFER\r\n\r\n@atexit.register\r\n\r\ndef write():\r\n    sys.__stdout__.write(_OUTPUT_BUFFER.getvalue())\r\n\r\nif __name__ == '__main__':\r\n    test_cases = int(input())\r\n    for cases in range(test_cases) :\r\n        n = int(input())\r\n        res = generate(n)\r\n        for i in range (len (res)):\r\n            print (res[i], end=\" \")\r\n        print()\r\n# } Driver Code Ends",
+  "status": "1",
+  "language": "python3",
+  "user_code": "#User function Template for python3\r\n\r\n\r\n\r\ndef generate(N):\r\n    res = []\r\n    for i in range(1,N+1):\r\n        res.append(bin(i)[2:])\r\n    return res\r\n\r\n\r\n\r\n\r\n"
+}

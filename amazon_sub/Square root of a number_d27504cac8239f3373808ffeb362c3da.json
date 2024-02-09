@@ -1,0 +1,6 @@
+{
+  "code": "import java.util.Scanner;\r\n\r\nclass SquartRoot\r\n{\r\n\tpublic static void main(String args[])\r\n\t{\r\n\t\tScanner sc = new Scanner(System.in);\r\n\t\tint t = sc.nextInt();\r\n\t\twhile(t>0)\r\n\t\t{\r\n\t\t\tlong a = sc.nextInt();\r\n\t\t\tSolution obj = new Solution();\r\n\t\t\tSystem.out.println(obj.floorSqrt(a));\r\n\t\tt--;\r\n\t\t}\r\n\t}\r\n}\r\n// } Driver Code Ends\r\n\r\n\r\n/*You are required to complete\r\nthis function*/\r\n\r\n// Function to find square root\r\n// x: element to find square root\r\nclass Solution\r\n{\r\n    long max = 0;\r\n     long floorSqrt(long x)\r\n\t {\r\n\t     for(int i = 1;  i*i <= x; i++)\r\n\t     {\r\n\t       \r\n\t       max = (long)Math.floor(i);\r\n\t     }\r\n\t     \r\n\t     return max;\r\n\t }\r\n\t \r\n\t \r\n}\r\n",
+  "status": "1",
+  "language": "java",
+  "user_code": "\r\n\r\n/*You are required to complete\r\nthis function*/\r\n\r\n// Function to find square root\r\n// x: element to find square root\r\nclass Solution\r\n{\r\n    long max = 0;\r\n     long floorSqrt(long x)\r\n\t {\r\n\t     for(int i = 1;  i*i <= x; i++)\r\n\t     {\r\n\t       \r\n\t       max = (long)Math.floor(i);\r\n\t     }\r\n\t     \r\n\t     return max;\r\n\t }\r\n\t \r\n\t \r\n}\r\n"
+}

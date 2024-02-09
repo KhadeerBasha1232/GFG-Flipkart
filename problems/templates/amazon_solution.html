@@ -1,0 +1,161 @@
+<!-- templates/search_solution.html -->
+{% extends "base.html" %}
+{% block content %}
+    <style>
+        body .solution-search {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .solution-search h1 {
+            color: #333;
+        }
+
+        .solution-search ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .solution-search li {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .solution-search strong {
+            color: #007bff;
+        }
+
+        .solution-search code {
+            display: block;
+            white-space: pre-wrap;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .solution-search .copy-btn {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+
+        .solution-search input[type="text"] {
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .solution-search input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        pre {
+            white-space: pre-wrap;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+
+    <div class="solution-search">
+        <h1>GFG-Amazon Solution Search</h1>
+        <p>Made with love by - KB ❤️</p>
+
+        <!-- Add a form for search -->
+        <form id="searchForm">
+            <label for="searchInput">Search by Problem Name:</label>
+            <input type="text" id="searchInput" name="searchInput">
+            <input type="submit" value="Search">
+        </form>
+
+        <ul id="solutionsList">
+            <!-- Solutions will be dynamically added here -->
+            {% for solution in solutions %}
+                <li >
+                    <strong>Problem Name:</strong> {{ solution.problem_name }}<br>
+                    <strong>Problem Language:</strong> {{ solution.lang }}<br>
+                    <strong>Problem Status:</strong> {{ solution.status }}<br>
+                    <strong>Code:</strong>
+                    <pre><code id="code{{ forloop.counter }}">{{ solution.code }}</code></pre>
+                    <button class="copy-btn" onclick="copyToClipboard('code{{ forloop.counter }}')">Copy Code</button>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <script>
+            function copyToClipboard(elementId) {
+                var codeElement = document.getElementById(elementId);
+                var textArea = document.createElement('textarea');
+                textArea.value = codeElement.innerText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('Code copied to clipboard!');
+            }
+        
+            document.getElementById('searchForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+        
+                // Get user input
+                var searchInput = document.getElementById('searchInput').value.toLowerCase();
+        
+                // Filter solutions based on the search input
+                var filteredSolutions = {{ solutions|safe }}.filter(function (solution) {
+                    return solution.problem_name.toLowerCase().includes(searchInput);
+                });
+        
+                // Display filtered solutions
+                displaySolutions(filteredSolutions);
+            });
+        
+            // Function to display solutions
+            function displaySolutions(solutionsToDisplay) {
+                var solutionsList = document.getElementById('solutionsList');
+                solutionsList.innerHTML = '';
+        
+                solutionsToDisplay.forEach(function (solution) {
+                    var listItem = document.createElement('li');
+                    listItem.innerHTML = `
+                        <strong>Problem Name:</strong> ${solution.problem_name}<br>
+                        <strong>Problem Language:</strong> ${ solution.lang }<br>
+                        <strong>Problem Status:</strong> <span style="${solution.status == 'Correct' ? 'background-color: #28a745;' : 'background-color: #dc3545;'}">
+                            ${ solution.status }
+                        </span><br>
+                        <strong>Code:</strong>
+                        <code id="code${solution.problem_name}">${escapeHtml(solution.code)}</code>
+                        <button class="copy-btn" onclick="copyToClipboard('code${solution.problem_name}')">Copy Code</button>
+                    `;
+                    solutionsList.appendChild(listItem);
+                });
+            }
+        
+            // Initial display of all solutions
+            displaySolutions({{ solutions|safe }});
+        
+            // Function to escape HTML entities
+            function escapeHtml(text) {
+                var div = document.createElement('div');
+                div.innerText = text;
+                return div.innerHTML;
+            }
+        </script>
+        
+    </div>
+{% endblock content %}

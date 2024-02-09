@@ -1,0 +1,6 @@
+{
+  "code": "    #Function to count the frequency of all elements from 1 to N in the array.\r\n    def frequencyCount(self, arr, N, P):\r\n        arr2 =arr.copy()\r\n        for i in arr2:\r\n            if i<=N:\r\n                arr[i - 1] += 1\r\n        for i in range(N):\r\n            arr[i]=arr[i]-arr2[i]\r\n        return arr\r\n\r\n\r\n\r\n\r\n\r\n#{ \r\n # Driver Code Starts\r\n#Initial Template for Python 3\r\n\r\nimport math\r\nif __name__==\"__main__\":\r\n    T=int(input())\r\n    while(T>0):\r\n        N=int(input())\r\n        arr=[int(x) for x in input().strip().split()]\r\n        P=int(input())\r\n        ob=Solution()\r\n        ob.frequencyCount(arr, N, P)\r\n        for i in arr:\r\n            print(i, end=\" \")\r\n        print()\r\n        T-=1\r\n\r\n\r\n\r\n# } Driver Code Ends",
+  "status": "1",
+  "language": "python3",
+  "user_code": "class Solution:\r\n    #Function to count the frequency of all elements from 1 to N in the array.\r\n    def frequencyCount(self, arr, N, P):\r\n        arr2 =arr.copy()\r\n        for i in arr2:\r\n            if i<=N:\r\n                arr[i - 1] += 1\r\n        for i in range(N):\r\n            arr[i]=arr[i]-arr2[i]\r\n        return arr\r\n\r\n\r\n\r\n\r\n\r\n"
+}

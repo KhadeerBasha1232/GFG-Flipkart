@@ -1,0 +1,6 @@
+{
+  "code": "    def topK(self, nums, k):\r\n        count = {}\r\n        for num in nums:\r\n            if num in count:\r\n                count[num] += 1\r\n            else:\r\n                count[num] = 1\r\n        count_list = list(count.items())\r\n        count_list.sort(key=lambda x: (x[1], x[0]),reverse=True)\r\n        return [item[0] for item in count_list[:k]]\r\n\r\n\r\n\r\n#{ \r\n # Driver Code Starts\r\n        \r\nif __name__ == '__main__':\r\n    T=int(input())\r\n    for i in range(T):\r\n        a = list(map(int, input().strip().split()))\r\n        n = a[0]\r\n        nums = a[1:]\r\n        k = int(input().strip())\r\n        obj = Solution()\r\n        ans = obj.topK(nums, k)\r\n        for i in ans:\r\n            print(i, end = \" \")\r\n        print()\r\n        \r\n# } Driver Code Ends",
+  "status": "1",
+  "language": "python3",
+  "user_code": "class Solution:\r\n    def topK(self, nums, k):\r\n        count = {}\r\n        for num in nums:\r\n            if num in count:\r\n                count[num] += 1\r\n            else:\r\n                count[num] = 1\r\n        count_list = list(count.items())\r\n        count_list.sort(key=lambda x: (x[1], x[0]),reverse=True)\r\n        return [item[0] for item in count_list[:k]]\r\n\r\n\r\n\r\n"
+}

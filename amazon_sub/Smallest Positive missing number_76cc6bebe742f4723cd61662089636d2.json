@@ -1,0 +1,6 @@
+{
+  "code": "\r\nclass Solution:\r\n    def findMissing(self,arr, n): \r\n    # your code goes here\r\n        for i in range(n):\r\n            current=arr[i]-1\r\n            while(0<=current and current<=n-1 and arr[i]!=arr[current]):\r\n                arr[current],arr[i]=arr[i],arr[current]\r\n                current=arr[i]-1\r\n        for i in range(n):\r\n            if(arr[i]!=i+1):\r\n                return  i+1\r\n        return n+1\r\n\r\n\r\n#{ \r\n # Driver Code Starts\r\n#Initial Template for Python 3\r\n\r\nif __name__ == '__main__':\r\n    t=int(input())\r\n    for i in range(t):\r\n        n = int(input())\r\n        arr = list(map(int, input().strip().split()))\r\n        ob=Solution()\r\n        print(ob.findMissing(arr, n))\r\n# } Driver Code Ends",
+  "status": "1",
+  "language": "python3",
+  "user_code": "#User function Template for python3\r\n\r\nclass Solution:\r\n    def findMissing(self,arr, n): \r\n    # your code goes here\r\n        for i in range(n):\r\n            current=arr[i]-1\r\n            while(0<=current and current<=n-1 and arr[i]!=arr[current]):\r\n                arr[current],arr[i]=arr[i],arr[current]\r\n                current=arr[i]-1\r\n        for i in range(n):\r\n            if(arr[i]!=i+1):\r\n                return  i+1\r\n        return n+1\r\n\r\n\r\n"
+}

@@ -1,0 +1,6 @@
+{
+  "code": "import java.util.*;\r\n\r\nclass Maxsum_Among_All_Rotations_Array\r\n{\r\n\tpublic  static void main(String args[])\r\n\t{\r\n\t\tScanner sc = new Scanner(System.in);\r\n\t\tint t = sc.nextInt();\r\n\t\twhile(t>0)\r\n\t\t{\r\n\t\t\tint n = sc.nextInt();\r\n\t\t\tint arr[] = new int[n];\r\n\t\t\tfor(int i=0;i<n;i++)\r\n\t\t\t\tarr[i] = sc.nextInt();\r\n\t\t\t\r\n\t\t\tSystem.out.println(new GfG().max_sum(arr,n));\r\n\t\t\t\r\n\t\tt--;\r\n\t\t}\r\n\t}\r\n\t\r\n}\r\n\r\n// } Driver Code Ends\r\n\r\n\r\nclass GfG\r\n{\r\n    int max_sum(int A[], int n)\r\n    {\r\n// Your code here\r\nint sum = 0;\r\nint res = 0;\r\nint max = 0;\r\nfor(int i = 0 ; i< n ; i++)\r\n{\r\nres = res + A[i]*i;\r\nsum = sum + A[i];\r\n}\r\nfor(int i = 0 ; i< n ; i++)\r\n{\r\n    res = res + A[i]*n - sum;\r\n   max = Math.max(res , max);\r\n}\r\nreturn max;\r\n    }\r\n}\r\n\r\n",
+  "status": "1",
+  "language": "java",
+  "user_code": "\r\n\r\nclass GfG\r\n{\r\n    int max_sum(int A[], int n)\r\n    {\r\n// Your code here\r\nint sum = 0;\r\nint res = 0;\r\nint max = 0;\r\nfor(int i = 0 ; i< n ; i++)\r\n{\r\nres = res + A[i]*i;\r\nsum = sum + A[i];\r\n}\r\nfor(int i = 0 ; i< n ; i++)\r\n{\r\n    res = res + A[i]*n - sum;\r\n   max = Math.max(res , max);\r\n}\r\nreturn max;\r\n    }\r\n}\r\n\r\n"
+}

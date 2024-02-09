@@ -1,0 +1,6 @@
+{
+  "code": "def convertFive(n):\r\n    # Code here\r\n    str_n =str(n)\r\n    list_n = list(str_n)\r\n    \r\n    for i in range(len(list_n)):\r\n        if list_n[i] == '0':\r\n            list_n[i] = '5'\r\n    \r\n    return ''.join(list_n)\r\n\r\n\r\n#{ \r\n # Driver Code Starts\r\n# Your code goes here\r\nif __name__=='__main__':\r\n    t = int(input())\r\n    for i in range(t):\r\n        print (convertFive(int(input().strip())))\r\n# } Driver Code Ends",
+  "status": "1",
+  "language": "python3",
+  "user_code": "# Function should return an integer value\r\ndef convertFive(n):\r\n    # Code here\r\n    str_n =str(n)\r\n    list_n = list(str_n)\r\n    \r\n    for i in range(len(list_n)):\r\n        if list_n[i] == '0':\r\n            list_n[i] = '5'\r\n    \r\n    return ''.join(list_n)\r\n\r\n\r\n"
+}

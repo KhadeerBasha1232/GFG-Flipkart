@@ -1,0 +1,6 @@
+{
+  "code": "def strstr(s,x):\r\n    if x not in s:\r\n        return -1\r\n    return s.index(x)\r\n\r\n\r\n#{ \r\n # Driver Code Starts\r\n#Contributed by : Nagendra Jha\r\n\r\nimport atexit\r\nimport io\r\nimport sys\r\n\r\n_INPUT_LINES = sys.stdin.read().splitlines()\r\ninput = iter(_INPUT_LINES).__next__\r\n_OUTPUT_BUFFER = io.StringIO()\r\nsys.stdout = _OUTPUT_BUFFER\r\n\r\n@atexit.register\r\n\r\ndef write():\r\n    sys.__stdout__.write(_OUTPUT_BUFFER.getvalue())\r\n\r\nif __name__ == '__main__':\r\n    t=int(input())\r\n    for cases in range(t):\r\n        s,p =input().strip().split()\r\n        print(strstr(s,p))\r\n\r\n\r\n# } Driver Code Ends",
+  "status": "1",
+  "language": "python3",
+  "user_code": "#Function to locate the occurrence of the string x in the string s.\r\ndef strstr(s,x):\r\n    if x not in s:\r\n        return -1\r\n    return s.index(x)\r\n\r\n\r\n"
+}
