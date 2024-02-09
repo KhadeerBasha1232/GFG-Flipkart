@@ -1,0 +1,6 @@
+{
+  "code": "#include <bits/stdc++.h>\r\n\r\nusing namespace std;\r\n\r\n// } Driver Code Ends\r\n//User function template for C++\r\nclass Solution{\r\npublic:\t\r\n\tint search(int A[], int N){\r\n\t    //code\r\n\t    unordered_map<int,int> mp;\r\n\t    for(int i=0;i<N;i++)\r\n\t    mp[A[i]]++;\r\n\t    \r\n\t    for(auto it:mp)\r\n\t    {\r\n\t        if(it.second==1)\r\n\t        return it.first;\r\n\t    }\r\n\t    \r\n\t    return -1;\r\n\t}\r\n};\r\n\r\n//{ Driver Code Starts.\r\n\r\n// Driver program\r\nint main()\r\n{\r\n    int t,len;\r\n    cin>>t;\r\n    while(t--)\r\n    {\r\n        cin>>len;\r\n        int arr[len];\r\n        for(int i=0;i<len;i++){\r\n            cin>>arr[i];\r\n        }\r\n        Solution ob;\r\n        cout<<ob.search(arr, len)<<'\\n';\r\n    }\r\n    return 0;\r\n}\r\n\r\n// } Driver Code Ends",
+  "status": "1",
+  "language": "cpp",
+  "user_code": "//User function template for C++\r\nclass Solution{\r\npublic:\t\r\n\tint search(int A[], int N){\r\n\t    //code\r\n\t    unordered_map<int,int> mp;\r\n\t    for(int i=0;i<N;i++)\r\n\t    mp[A[i]]++;\r\n\t    \r\n\t    for(auto it:mp)\r\n\t    {\r\n\t        if(it.second==1)\r\n\t        return it.first;\r\n\t    }\r\n\t    \r\n\t    return -1;\r\n\t}\r\n};\r\n"
+}
