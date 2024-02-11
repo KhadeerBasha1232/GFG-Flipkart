@@ -1,0 +1,6 @@
+{
+  "code": "//Initial Template for Java\r\nimport java.io.*;\r\nimport java.util.*;\r\n\r\nclass GFG\r\n{\r\n    public static void main(String args[])throws IOException\r\n    {\r\n        Scanner sc = new Scanner(System.in);\r\n        int t = sc.nextInt();\r\n        while(t-- > 0)\r\n        {\r\n            int N = sc.nextInt();\r\n\t\t\t\r\n            Solution ob = new Solution();\r\n            int ans  = ob.trailingZeroes(N);\r\n            System.out.println(ans);\r\n        }\r\n    }\r\n}\r\n\r\n// } Driver Code Ends\r\n\r\n\r\n\r\n\r\n\r\n\r\n//User function Template for Java\r\nclass Solution{\r\n    static int trailingZeroes(int N){\r\n        int res=0;\r\n        for(int i=5;i<=N;i=i*5)\r\n        {\r\n            res=res+N/i;\r\n        }\r\n        return res;\r\n    }\r\n}",
+  "status": "1",
+  "language": "java",
+  "user_code": "\r\n\r\n\r\n\r\n\r\n\r\n//User function Template for Java\r\nclass Solution{\r\n    static int trailingZeroes(int N){\r\n        int res=0;\r\n        for(int i=5;i<=N;i=i*5)\r\n        {\r\n            res=res+N/i;\r\n        }\r\n        return res;\r\n    }\r\n}"
+}

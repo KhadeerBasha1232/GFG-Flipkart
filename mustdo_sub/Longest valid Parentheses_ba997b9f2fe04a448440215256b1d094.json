@@ -1,0 +1,6 @@
+{
+  "code": "\r\nclass Solution:\r\n    def maxLength(self, S):\r\n        # code here\r\n        mx=0\r\n        stack=[-1]\r\n        for i in range(len(S)):\r\n            if S[i] == '(':\r\n                stack.append(i)\r\n            else:\r\n                stack.pop()\r\n                if len(stack)==0:\r\n                    stack.append(i)\r\n                else:\r\n                    mx=max(i-stack[-1],mx)\r\n        return mx\r\n\r\n\r\n\r\n\r\n#{ \r\n # Driver Code Starts\r\n# Initial Template for Python3\r\n\r\nif __name__ == '__main__':\r\n    t = int(input())\r\n    for _ in range(t):\r\n        S = input()\r\n        \r\n        ob = Solution()\r\n        print(ob.maxLength(S))\r\n# } Driver Code Ends",
+  "status": "1",
+  "language": "python3",
+  "user_code": "# User function Template for Python3\r\n\r\nclass Solution:\r\n    def maxLength(self, S):\r\n        # code here\r\n        mx=0\r\n        stack=[-1]\r\n        for i in range(len(S)):\r\n            if S[i] == '(':\r\n                stack.append(i)\r\n            else:\r\n                stack.pop()\r\n                if len(stack)==0:\r\n                    stack.append(i)\r\n                else:\r\n                    mx=max(i-stack[-1],mx)\r\n        return mx\r\n\r\n\r\n\r\n\r\n"
+}
