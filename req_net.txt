@@ -1,5 +1,0 @@
-Django
-gunicorn
-requests
-urllib3
-pymysql
