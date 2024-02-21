@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 # Create your views here.
 # views.py
@@ -157,3 +157,30 @@ def search_must(request):
 
 def index(request):
     return render(request,"index.html")
+
+
+
+
+from .run import runner
+
+
+
+def auto(request):
+    if request.method == "POST":
+        # Extracting form data
+        url = request.POST.get('url')
+        sid = request.POST.get('sid', '')  # Default to empty string if not provided
+        delay = request.POST.get('delay')
+        
+        try:
+            delay = int(delay)  # Ensure delay is an integer
+        except ValueError:
+            delay = 0  
+        print("executing runner")
+        success, error = runner(url, sid, delay)
+        
+        # Pass success and error lists to the success.html template
+        return render(request, 'success.html', {'success': success, 'error': error})
+    else:
+        # Handle GET request
+        return render(request, "auto_form.html")

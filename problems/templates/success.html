@@ -1,0 +1,96 @@
+<!-- templates/success.html -->
+{% extends "base.html" %}
+{% block content %}
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 5% auto;
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .col-md-6 {
+        flex: 0 0 48%;
+        max-width: 48%;
+    }
+
+    h2 {
+        margin-bottom: 15px;
+        color: #007bff;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: #333;
+    }
+
+    .success-section {
+        background-color: #d4edda;
+        border: 1px solid #c3e6cb;
+        border-radius: 5px;
+        padding: 15px;
+    }
+
+    .error-section {
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        border-radius: 5px;
+        padding: 15px;
+    }
+
+    .no-submissions {
+        text-align: center;
+        margin-top: 20px;
+        color: #555;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="success-section">
+                <h2>Successful Submissions</h2>
+                {% if success %}
+                    <ul>
+                        {% for item in success %}
+                            <li>{{ item.0 }}</li>  {# Accessing the first element of the tuple #}
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="no-submissions">No successful submissions</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="error-section">
+                <h2>Failed Submissions</h2>
+                {% if error %}
+                    <ul>
+                        {% for item in error %}
+                            <li>{{ item.0 }} - {{ item.1 }}</li>  {# Accessing the elements of the tuple #}
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p class="no-submissions">No failed submissions</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

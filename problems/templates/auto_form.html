@@ -1,0 +1,154 @@
+<!-- templates/auto_form.html -->
+{% extends "base.html" %}
+{% block content %}
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 5% auto;
+    }
+
+    .form-section, .instruction-section {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        margin: 20px;
+    }
+
+    .instruction-section {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .instruction-section h2 {
+        margin-bottom: 15px;
+        color: #fff;
+    }
+
+    .instruction-section p {
+        margin-bottom: 10px;
+        color: #f0f0f0;
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .col-md-6 {
+        flex: 0 0 48%;
+        max-width: 48%;
+    }
+
+    form {
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #555;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+
+    button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    #loadingOverlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1000;
+    }
+
+    #loadingOverlay > div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 18px;
+    }
+</style>
+
+<div id="loadingOverlay">
+    <div>Submitting Your Problems (Do Not Close The Window)...</div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <!-- Form Section -->
+        <div class="col-md-6 form-section">
+            <h1>GFG-Automate Course Submission</h1>
+            <form id="searchForm" method="POST" action="{% url 'auto' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="urlInput">URL:</label>
+                    <input type="text" id="urlInput" name="url" placeholder="Enter URL" required>
+                </div>
+                <div class="form-group">
+                    <label for="sidInput">Session ID:</label>
+                    <input type="text" id="sidInput" name="sid" placeholder="Enter Session ID">
+                </div>
+                <div class="form-group">
+                    <label for="delayInput">Delay (in seconds):</label>
+                    <input type="number" id="delayInput" name="delay" placeholder="Enter Delay" required min="0">
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <!-- Instruction Section -->
+        <div class="col-md-6 instruction-section">
+            <h2>Instructions</h2>
+            <p>Welcome to the GFG-Microsoft Solution Search tool. Please follow the instructions below to get started:</p>
+            <ul>
+                <li><strong>URL:</strong> Enter the URL where the search is to be performed.</li>
+                <li><strong>Session ID:</strong> Provide the session ID if required for authentication.</li>
+                <li><strong>Delay:</strong> Specify the delay (in seconds) between the search queries.</li>
+            </ul>
+            <p>After filling in the required fields, click on the submit button to start the search. Thank you for using our tool!</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('searchForm').onsubmit = function() {
+        document.getElementById('loadingOverlay').style.display = 'block';
+    };
+</script>
+
+{% endblock content %}
