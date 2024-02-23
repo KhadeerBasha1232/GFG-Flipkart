@@ -33,24 +33,9 @@
             color: #555;
         }
 
-        .loading-spinner {
-            border: 6px solid #f3f3f3;
-            border-top: 6px solid #3498db;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
+        .tick-mark {
+            font-size: 30px;
+            color: #4caf50;
         }
     </style>
 </head>
@@ -59,8 +44,8 @@
     <div class="container">
         <h1>Submission Status</h1>
         <p>Your Thread Has Started Submitting Your Answers.</p>
-        <p>Your answer's are being submitted...</p>
-        <div class="loading-spinner"></div>
+        <p>Your answers are being submitted...</p>
+        <div class="tick-mark">&#10004;</div>
         <p>You can track the submission directly on GeeksforGeeks.<br>You Can Close This Window.</p>
     </div>
 </body>
