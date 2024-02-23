@@ -1,3 +1,4 @@
+import threading
 from django.shortcuts import redirect, render
 
 # Create your views here.
@@ -165,6 +166,15 @@ from .run import runner
 
 
 
+
+from functools import partial
+
+
+def run_and_store_results(request, url, sid, delay, success_list, error_list):
+    success, error = runner(url, sid, delay)
+    success_list.extend(success)
+    error_list.extend(error)
+
 def auto(request):
     if request.method == "POST":
         # Extracting form data
@@ -175,12 +185,22 @@ def auto(request):
         try:
             delay = int(delay)  # Ensure delay is an integer
         except ValueError:
-            delay = 0  
-        print("executing runner")
-        success, error = runner(url, sid, delay)
-        
-        # Pass success and error lists to the success.html template
-        return render(request, 'success.html', {'success': success, 'error': error})
+            delay = 0
+
+        # Lists to store success and error results
+        success_list = []
+        error_list = []
+
+        # Create a thread to run the task asynchronously
+        task_thread = threading.Thread(target=partial(run_and_store_results, request, url, sid, delay, success_list, error_list))
+        task_thread.start()
+
+        # Continue processing without waiting for the thread to finish
+
+        # Render the template (without waiting for the thread to complete)
+        return render(request, 'success.html')
+
     else:
         # Handle GET request
         return render(request, "auto_form.html")
+
