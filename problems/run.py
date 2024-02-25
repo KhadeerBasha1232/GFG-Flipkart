@@ -131,11 +131,11 @@ def submit_problems(main_response, track_slug, cookies,delay ,connection):
 def runner(url, session_id, delay):
     # Establish a new connection for each invocation of the runner function
     connection = pymysql.connect(
-        host='db4free.net',
+        host='20.244.43.112',
         port=3306,
-        user='demo123',
-        password='Qwerty12@',
-        database='demodbqwerty',
+        user='khadeer',
+        password='khadeer12',
+        database='gfg',
         charset='utf8mb4',
         cursorclass=pymysql.cursors.DictCursor,
         connect_timeout=100
