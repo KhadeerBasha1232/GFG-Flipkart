@@ -45,6 +45,22 @@
         max-width: 48%;
     }
 
+    #passwordPrompt {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f8f9fa;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .password-container {
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+
     form {
         margin-top: 20px;
     }
@@ -103,8 +119,16 @@
         font-size: 18px;
     }
 </style>
+<div id="passwordPrompt">
+    <div class="password-container">
+        <h2>Password Required</h2>
+        <p>This page is password protected. Please enter the password to access the content.<br/>Updating the UnderWay.</p>
+        <!-- You can customize the password prompt text and appearance as needed -->
+        <button onclick="promptForPassword()">Enter Password</button>
+    </div>
+</div>
 <div id="loadingOverlay">
-    <div>Submitting Your Problems<br> (Do Not Close The Window. If You Want To See Results.)...</div>
+    <div>Submitting Your Problems (Do Not Close The Window)...</div>
 </div>
 
 <div class="container">
@@ -133,24 +157,34 @@
         <!-- Instruction Section -->
         <div class="col-md-6 instruction-section">
             <h2>Instructions</h2>
+            <p>Welcome to the GFG-Microsoft Solution Search tool. Please follow the instructions below to get started:</p>
             <ul>
-                <li>To get this Session ID, go to this link: <a href="https://gofile.io/d/cA8Des">https://gofile.io/d/cA8Des</a></li>
-                <li>Download the extension.</li>
-                <li>Enable Developer Mode in Chrome Extension Settings.</li>
-                <li>Click Load Unpacked, drag the unzipped version of the extension.</li>
-                <li>Go to GFG KL website and export your session using the extension.</li>
-                <li>Go to this link to get your Session ID: <a href="https://session.softpage.tech">https://session.softpage.tech</a></li>
-                <li>Paste the Session ID you got from the website here.</li>
-                <li>Enter the URL Of Particular Module Like Arrays in Amazon
-                    <ul>
-                        <li>Example: <a href="https://www.geeksforgeeks.org/batch/cts-1/track/amazon-arrays/problem/replace-all-0s-with-5">https://www.geeksforgeeks.org/batch/cts-1/track/amazon-arrays/problem/replace-all-0s-with-5</a></li>
-                    </ul>
-                </li>
-                <li>Note: Made With ❤️ By KB.</li>
+                <li><strong>URL:</strong> Enter the URL where the search is to be performed.</li>
+                <li><strong>Session ID:</strong> Provide the session ID if required for authentication.</li>
+                <li><strong>Delay:</strong> Specify the delay (in seconds) between the search queries.</li>
             </ul>
+            <p>After filling in the required fields, click on the submit button to start the search. Thank you for using our tool!</p>
         </div>
     </div>
 </div>
+<script>
+    // Function to prompt the user for a password
+    function promptForPassword() {
+        var password = prompt("For Queries Contact email :- hlobhai041@gmail.com \nPlease enter the password:");
+        // Check if the entered password is correct
+        if (password !== null && password === "demo123@") {
+            // If the password is correct, show the main content
+            document.getElementById('passwordPrompt').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+        } else {
+            // If the password is incorrect or canceled, redirect to the home page
+            window.location.href = "/"; // Change "/" to the desired home page URL
+        }
+    }
+
+    // Call the password prompt function when the page loads
+    window.onload = promptForPassword;
+</script>
 
 <script>
     document.getElementById('searchForm').onsubmit = function() {
