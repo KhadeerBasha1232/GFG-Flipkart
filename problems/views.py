@@ -7,6 +7,21 @@ import os
 import json
 from django.shortcuts import render
 
+
+running_threads_count = 0
+threads_lock = threading.Lock()
+
+
+
+# views.py
+
+from django.http import JsonResponse
+
+def get_running_threads_count(request):
+    global running_threads_count
+    return JsonResponse({'count': running_threads_count})
+
+
 def search_flipkart(request):
     folder_path = './flipkart_sub'  # Update this with the actual path
     solutions = []
@@ -171,9 +186,16 @@ from functools import partial
 
 
 def run_and_store_results(request, url, sid, delay, success_list, error_list):
+    global running_threads_count
+
+    with threads_lock:
+        running_threads_count += 1
     success, error = runner(url, sid, delay)
     success_list.extend(success)
     error_list.extend(error)
+    with threads_lock:
+            running_threads_count -= 1
+
 
 def auto(request):
     if request.method == "POST":

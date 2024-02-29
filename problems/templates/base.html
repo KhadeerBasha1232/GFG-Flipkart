@@ -1,6 +1,7 @@
 <!-- base.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,10 +17,11 @@
         }
 
         nav {
-            background-color: #007bff; /* Navbar background color */
-            color: #fff; /* Text color */
+            background-color: #007bff;
+            color: #fff;
             padding: 15px;
             text-align: center;
+            position: relative;
         }
 
         nav a {
@@ -31,21 +33,49 @@
         nav a:hover {
             text-decoration: underline;
         }
+
+        #running-threads-badge {
+            background-color: red;
+            color: white;
+            border-radius: 10px;
+            padding: 5px 10px;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+        }
     </style>
 </head>
+
 <body>
 
-<nav>
-    <a href="/">Home</a>
-    <a href="/auto">Automate Submissions</a>
-    <a href="/amazon">Amazon</a>
-    <a href="/flipkart">Flipkart</a>
-    <a href="/microsoft">Microsoft</a>
-    <a href="/google">Google</a>
-    <a href="/must-do">Must Do</a>
-</nav>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/auto">Automate Submissions</a>
+        <a href="/amazon">Amazon</a>
+        <a href="/flipkart">Flipkart</a>
+        <a href="/microsoft">Microsoft</a>
+        <a href="/google">Google</a>
+        <a href="/must-do">Must Do</a>
 
-{% block content %}{% endblock %}
+        <span id="running-threads-badge">Total Bots Running: {{ running_threads_count }}</span>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <script>
+        // Poll the server every 5 seconds to get the updated count
+        setInterval(() => {
+            fetch('/get_running_threads_count') // Adjust the URL as needed
+                .then(response => response.json())
+                .then(data => {
+                    // Update the count in the badge
+                    document.getElementById('running-threads-badge').innerText = "Total Bots Running :- "+ data.count;
+                })
+                .catch(error => console.error('Error fetching running thread count:', error));
+        }, 500);
+    </script>
 
 </body>
+
 </html>
