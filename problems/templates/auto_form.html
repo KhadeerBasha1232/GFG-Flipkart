@@ -45,22 +45,6 @@
         max-width: 48%;
     }
 
-    #passwordPrompt {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        background-color: #f8f9fa;
-        font-family: 'Arial', sans-serif;
-    }
-
-    .password-container {
-        text-align: center;
-        padding: 20px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-    }
-
     form {
         margin-top: 20px;
     }
@@ -119,16 +103,8 @@
         font-size: 18px;
     }
 </style>
-<div id="passwordPrompt">
-    <div class="password-container">
-        <h2>Password Required</h2>
-        <p>This page is password protected. Please enter the password to access the content.<br/>Updating the UnderWay.</p>
-        <!-- You can customize the password prompt text and appearance as needed -->
-        <button onclick="promptForPassword()">Enter Password</button>
-    </div>
-</div>
 <div id="loadingOverlay">
-    <div>Submitting Your Problems (Do Not Close The Window)...</div>
+    <div>Submitting Your Problems<br> (Do Not Close The Window. If You Want To See Results.)...</div>
 </div>
 
 <div class="container">
@@ -175,24 +151,6 @@
         </div>
     </div>
 </div>
-<script>
-    // Function to prompt the user for a password
-    function promptForPassword() {
-        var password = prompt("For Queries Contact email :- hlobhai041@gmail.com \nPlease enter the password:");
-        // Check if the entered password is correct
-        if (password !== null && password === "demo123@") {
-            // If the password is correct, show the main content
-            document.getElementById('passwordPrompt').style.display = 'none';
-            document.getElementById('mainContent').style.display = 'block';
-        } else {
-            // If the password is incorrect or canceled, redirect to the home page
-            window.location.href = "/"; // Change "/" to the desired home page URL
-        }
-    }
-
-    // Call the password prompt function when the page loads
-    window.onload = promptForPassword;
-</script>
 
 <script>
     document.getElementById('searchForm').onsubmit = function() {
