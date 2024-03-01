@@ -1,3 +1,4 @@
+from datetime import datetime
 import json
 import time
 from urllib.parse import urlparse
@@ -128,6 +129,19 @@ def submit_problems(main_response, track_slug, cookies,delay ,connection):
 
     return submitted_problems, non_submitted_problems
 
+
+def insert_gfgusername_into_history(gfgusername, connection):
+    cursor = connection.cursor()
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')# Get current Unix timestamp
+
+    insert_query = "INSERT INTO history (gfgusername, timestamp) VALUES (%s, %s)"
+    cursor.execute(insert_query, (gfgusername, timestamp))
+
+    connection.commit()
+    cursor.close()
+
+
+
 def runner(url, session_id, delay):
     # Establish a new connection for each invocation of the runner function
     connection = pymysql.connect(
@@ -147,6 +161,7 @@ def runner(url, session_id, delay):
         error = []
         if cookies is not None:
             cookies_dict = convert_cookies_to_dictionary(cookies)
+            insert_gfgusername_into_history(cookies_dict['gfguserName'].split('%2')[0],connection)
             track_slug = extract_slug_from_url(url)
             url = f"https://practiceapi.geeksforgeeks.org/api/latest/tracks/{track_slug}/batch/cts-1/"
             response = requests.get(url, cookies=cookies_dict)
