@@ -2,6 +2,7 @@ from datetime import datetime
 import json
 import time
 from urllib.parse import urlparse
+import pytz
 import requests
 import pymysql.cursors
 
@@ -130,12 +131,26 @@ def submit_problems(main_response, track_slug, cookies,delay ,connection):
     return submitted_problems, non_submitted_problems
 
 
-def insert_gfgusername_into_history(gfgusername, connection):
+def insert_gfgusername_into_history(gfgusername, track_slug, connection):
     cursor = connection.cursor()
-    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')# Get current Unix timestamp
+    print(f"---------------------{track_slug}")
+    # Get current UTC time
+    utc_now = datetime.utcnow()
 
-    insert_query = "INSERT INTO history (gfgusername, timestamp) VALUES (%s, %s)"
-    cursor.execute(insert_query, (gfgusername, timestamp))
+    # Define the UTC timezone
+    utc_timezone = pytz.utc
+
+    # Define the India timezone
+    india_timezone = pytz.timezone('Asia/Kolkata')
+
+    # Convert UTC time to India time
+    india_now = utc_now.replace(tzinfo=utc_timezone).astimezone(india_timezone)
+
+    # Format the timestamp as a string
+    timestamp = india_now.strftime('%Y-%m-%d %H:%M:%S')
+
+    insert_query = "INSERT INTO history (gfgusername, track_slug, timestamp) VALUES (%s, %s, %s)"
+    cursor.execute(insert_query, (gfgusername, track_slug, timestamp))
 
     connection.commit()
     cursor.close()
@@ -161,8 +176,8 @@ def runner(url, session_id, delay):
         error = []
         if cookies is not None:
             cookies_dict = convert_cookies_to_dictionary(cookies)
-            insert_gfgusername_into_history(cookies_dict['gfguserName'].split('%2')[0],connection)
             track_slug = extract_slug_from_url(url)
+            insert_gfgusername_into_history(cookies_dict['gfguserName'].split('%2')[0],track_slug,connection)
             url = f"https://practiceapi.geeksforgeeks.org/api/latest/tracks/{track_slug}/batch/cts-1/"
             response = requests.get(url, cookies=cookies_dict)
             main_response = response.json()
