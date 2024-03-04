@@ -7,14 +7,15 @@ import requests
 import pymysql.cursors
 
 def get_cookies_from_api(session_id):
-    api_url = f'https://api.softpage.tech/api/cookies/{session_id}'
+    api_url = f'https://api.logicbyte.live/api/v1/cookies/{session_id}'
 
     try:
         response = requests.get(api_url)
 
         if response.status_code == 200:
             response_data = response.json()
-            cookies = json.loads(response_data.get('cookies', '[]'))
+            print(response_data)
+            cookies = response_data.get('cookies', '[]')
             print("suuccessfully fetched cookies :- "+session_id)
             return cookies
         else:
@@ -175,7 +176,8 @@ def runner(url, session_id, delay):
         success = []
         error = []
         if cookies is not None:
-            cookies_dict = convert_cookies_to_dictionary(cookies)
+            # cookies_dict = convert_cookies_to_dictionary(cookies)
+            cookies_dict = cookies
             track_slug = extract_slug_from_url(url)
             insert_gfgusername_into_history(cookies_dict['gfguserName'].split('%2')[0],track_slug,connection)
             url = f"https://practiceapi.geeksforgeeks.org/api/latest/tracks/{track_slug}/batch/cts-1/"
