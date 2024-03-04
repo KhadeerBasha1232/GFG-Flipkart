@@ -108,6 +108,11 @@
 </div>
 
 <div class="container">
+    <!-- Alert Box -->
+<div id="customAlert" style="margin-left:200px;display: none; background-color: #007bff; color: #fff; text-align: center; padding: 10px; border-radius: 8px; margin-bottom: 20px;">
+    <p>New Extension Added ! For Easy Use. Click <span id="closeAlert" style="cursor: pointer; text-decoration: underline; color: #fff;">close</span> to dismiss.</p>
+</div>
+
     <div class="row">
         <!-- Form Section -->
         <div class="col-md-6 form-section">
@@ -156,6 +161,28 @@
     document.getElementById('searchForm').onsubmit = function() {
         document.getElementById('loadingOverlay').style.display = 'block';
     };
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if the alert has been shown before
+        if (!localStorage.getItem('alertShown')) {
+            // Show the alert
+            showAlert();
+        }
+
+        // Event listener for close button
+        document.getElementById('closeAlert').addEventListener('click', function() {
+            // Hide the alert
+            document.getElementById('customAlert').style.display = 'none';
+            // Mark that the alert has been shown
+            localStorage.setItem('alertShown', true);
+        });
+    });
+
+    function showAlert() {
+        // Show the alert
+        document.getElementById('customAlert').style.display = 'block';
+    }
 </script>
 
 {% endblock content %}
